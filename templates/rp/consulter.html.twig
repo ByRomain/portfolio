@@ -10,108 +10,76 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <h1 class="display-4"><u>Réalisations professionnelles</u></h1>
-       <br> 
-
-<form>
-  <div class="form-group">
-    <table>
-      <tr>
-        <td width="100%">
-          <label for="formGroupExampleInput">Libellé*</label><br>
-          {{consulter.libcourt}}
-        </td>
-      </tr>
-    </table>
-  </div>
-
-
-  <div class="form-group">
-    <table>
-      <tr>
-        <td width="100%">
-          <label for="formGroupExampleInput2">Contexte</label>
-          <br>
-          {{consulter.contexte}}
-        </td>
-      </tr>
-    </table>
-  </div>
-
-
-  <div class="form-group">
-    <table>
-      <tr>
-        <td width="100%">
-          <label for="formGroupExampleInput3">Définition du besoin</label>
-          <br>
-         {{consulter.descriptif}}
-        </td>
-        
-      </tr>
-    </table>
-  </div>
-</form>
-
-<br><br>
-
-
-<div class="jumbotron jumbotron-fluid">
   <div class="container">
-  <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="localisation">Localisation</label>
-      <br>
-      {{consulter.localisation.libelle}}
-    </div>
-    <div class="form-group col-md-4">
-      <label for="source">Source</label>
-      <br>
-      {{consulter.source.libelle}}
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="source">Cadre</label>
-      <br>
-      {{consulter.cadre.libelle}}
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="debut">Debut</label>
-      <br>
-      {{consulter.dateDebut|date("Y/M/D")}}
-    </div>
-    <div class="form-group col-md-6">
-      <label for="fin">Fin</label>
-      <br>
-      {{consulter.dateFin|date("Y/M/D")}}
-    </div>
-  </div>
-</form>
-  </div>
-</div>
+    <center>
+      <h1>Réalisations professionnelles</h1>
+      <hr class="featurette-divider p-1">
+    </center>
 
-<br>
+    <dv class="container">
+      <form>
+        <div class="col-md-6 mb-3">
+          <label for="disabledTextInput">Libellé</label>
+          <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.libcourt}}">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="disabledTextInput">Contexte</label>
+          <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.contexte}}">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="disabledTextInput">Définition du besoin</label>
+          <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.descriptif}}">
+        </div>
+      </form>
 
-<form>
-  <div class="form-group">
-    <label for="env_tech">Env.tech</label>
-    <br>
-    {{consulter.environnement}}
-  </div>
-  <div class="form-group">
-    <label for="moyens">Moyens</label>
-    <br>
-    {{consulter.moyen}}
-  </div>
-</form>
+      <br><br>
 
-</div>
+
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <form>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="disabledTextInput">Localisation</label>
+                <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.localisation.libelle}}">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="disabledTextInput">Source</label>
+                <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.source.libelle}}">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="disabledTextInput">Cadre</label>
+                <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.cadre.libelle}}">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="disabledTextInput">Debut</label>
+                <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.dateDebut|date('Y/M/D')}}">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="disabledTextInput">Fin</label>
+                <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.dateFin|date("Y/M/D")}}">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <br>
+
+      <form>
+        <div class="col-md-6 mb-3">
+          <label for="disabledTextInput">Env.tech</label>
+          <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.environnement}}">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="disabledTextInput">Moyens</label>
+          <input type="text" id="disabledTextInput" class="form-control" value="{{consulter.moyen}}">
+        </div>
+      </form>
+
+  </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </html>
 {% endblock %}

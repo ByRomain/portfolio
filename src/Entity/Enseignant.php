@@ -237,4 +237,10 @@ class Enseignant
 
         return $this;
     }
+
+    public function  nbRpSelonNomPromo(int $pnomPromo) {
+      $compteur= 0;
+          $compteur++;
+      return $compteur;
+    }
 }
