@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\RP;
 use App\Entity\Etudiant;
-use App\Entity\RPActivite; 
+use App\Entity\RPActivite;
+use App\Form\RPType;
 
 class RPController extends AbstractController
 {
@@ -25,7 +26,7 @@ class RPController extends AbstractController
     {
         return $this->render('rp/lister.html.twig', [
             'controller_name' => 'EtudiantController',
-        ]);                   
+        ]);
     }
 
     public function ListerLesRPaCommenter(): Response
@@ -35,8 +36,18 @@ class RPController extends AbstractController
         ]);
     }
 
+
+    public function ajouterRp(){
+
+        $rp = new RP();
+        $form = $this->createForm(RPType::class, $rp);
+                return $this->render('rp/ajouter.html.twig', array(
+                'form' => $form->createView(), ));
+    }
+
+
     public function listerLesRP($idEtudiant){
-            
+
             $etudiant = $this->getDoctrine()
             ->getRepository(Etudiant::class)
             ->find($idEtudiant);
@@ -48,11 +59,8 @@ class RPController extends AbstractController
                 );
             }
 
-            
+
             return $this->render('rp/lister.html.twig', [ 'pEtudiant' => $etudiant,]);
 
     }
 }
-
-
-

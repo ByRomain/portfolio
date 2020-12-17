@@ -44,9 +44,15 @@ class SemaineStage
      */
     private $stage;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Pointage::class, mappedBy="semaine")
+     */
+    private $pointages;
+
     public function __construct()
     {
         $this->tacheSemaines = new ArrayCollection();
+        $this->pointages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -128,6 +134,36 @@ class SemaineStage
     public function setStage(?Stage $stage): self
     {
         $this->stage = $stage;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Pointage[]
+     */
+    public function getPointages(): Collection
+    {
+        return $this->pointages;
+    }
+
+    public function addPointage(Pointage $pointage): self
+    {
+        if (!$this->pointages->contains($pointage)) {
+            $this->pointages[] = $pointage;
+            $pointage->setSemaine($this);
+        }
+
+        return $this;
+    }
+
+    public function removePointage(Pointage $pointage): self
+    {
+        if ($this->pointages->removeElement($pointage)) {
+            // set the owning side to null (unless already changed)
+            if ($pointage->getSemaine() === $this) {
+                $pointage->setSemaine(null);
+            }
+        }
 
         return $this;
     }

@@ -76,5 +76,16 @@ class StageController extends AbstractController
             'pStages' => $stages,]);
     }
 
+    public function gettachesemainepardomaine($domaine_id){
+      $repository = $this -> gettache_semaine()
+      $listetaches = $repository->findAll();
+      foreach ($listetaches as $taches) {
+        if ($domaine_id = 1) {
+          
+        }
+      }
+
+    }
+
 
 }

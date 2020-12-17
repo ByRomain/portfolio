@@ -101,10 +101,16 @@ class RP
      */
     private $cadre;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Production::class, mappedBy="rp")
+     */
+    private $productions;
+
     public function __construct()
     {
         $this->activites = new ArrayCollection();
         $this->commentaire = new ArrayCollection();
+        $this->productions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -336,6 +342,36 @@ class RP
     public function setCadre(?Cadre $cadre): self
     {
         $this->cadre = $cadre;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Production[]
+     */
+    public function getProductions(): Collection
+    {
+        return $this->productions;
+    }
+
+    public function addProduction(Production $production): self
+    {
+        if (!$this->productions->contains($production)) {
+            $this->productions[] = $production;
+            $production->setRp($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduction(Production $production): self
+    {
+        if ($this->productions->removeElement($production)) {
+            // set the owning side to null (unless already changed)
+            if ($production->getRp() === $this) {
+                $production->setRp(null);
+            }
+        }
 
         return $this;
     }
